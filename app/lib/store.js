@@ -1,7 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { create } from "zustand";
 
-export const makeStore = () => {
-  return configureStore({
-    reducer: {},
-  });
-};
+export const useStore = create((set) => ({
+  results: [],
+  setResults: (newResult) =>
+    set((state) => ({
+      results: [...state.results, newResult],
+    })),
+}));

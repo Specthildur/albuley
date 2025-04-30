@@ -1,7 +1,8 @@
 import Image from "next/image";
 import albumphoto from "../../public/ExileMainSt.jpg";
 
-export default function ResultItem({ title, age, artist, image, rating }) {
+export default function ResultItem({ data }) {
+  console.log(data);
   return (
     <div className="flex flex-col p-2 hover:bg-green-300 grow">
       <div className="w-full">
