@@ -6,7 +6,7 @@ export async function searchAlbum(albumName) {
     }
 
     const response = await fetch(
-        `http://ws.audioscrobbler.com/2.0/?method=album.search&album=${albumName}&limit=3&api_key=${process.env.LASTFM_KEY}&format=json`,
+        `http://ws.audioscrobbler.com/2.0/?method=album.search&album=${albumName}&limit=50&api_key=${process.env.LASTFM_KEY}&format=json`,
         {
             method: "GET",
         }

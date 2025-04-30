@@ -4,13 +4,11 @@ import { searchAlbum } from "@/app/services/searchAlbum";
 import debounce from "@/app/services/debounce.js";
 
 export default function Header() {
-    const setResults = useStore((state) => state.setResults);
-    const results = useStore((state) => state.results);
+    const setResults = useStore((state) => state.setResults, true);
 
     async function handleSearch(e) {
         if (!e.target.value) {
             setResults([]);
-            return;
         } else {
             const input = e.target.value;
             const response = await searchAlbum(input);
@@ -36,10 +34,6 @@ export default function Header() {
                 <div className="w-1/6 flex grow content-stretch">
                     <div className="grow">My Albums</div>
                     <div className="grow">Log Out</div>
-                    {results &&
-                        results.map((el, i) => {
-                            return <p key={i}>{el.name}</p>;
-                        })}
                 </div>
             </div>
         </header>
