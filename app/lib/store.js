@@ -1,9 +1,15 @@
 import { create } from "zustand";
 
-export const useStore = create((set) => ({
-    results: [],
-    setResults: (newResult) =>
-        set(() => ({
-            results: newResult,
-        })),
+const initialState = {
+  results: [],
+};
+
+export const useStore = create((set, get) => ({
+  ...initialState,
+  selectedResult: null,
+  setResults: (newResult) =>
+    set(() => ({
+      results: newResult,
+    })),
+  reset: () => set(initialState),
 }));
