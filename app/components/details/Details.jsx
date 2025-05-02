@@ -1,17 +1,13 @@
-"use client";
-
-import { useStore } from "@/app/lib/store";
-import { useShallow } from "zustand/react/shallow";
-import { notFound } from "next/navigation";
-
-export default function Details({ resultId }) {
-  const results = useStore(
-    useShallow((state) => state.results.map((result) => result))
+export default function Details({ data }) {
+  return (
+    <>
+      {data.map((el, i) => {
+        return (
+          <li key={i} className="mb-2">
+            <p>{el.title}</p>
+          </li>
+        );
+      })}
+    </>
   );
-  const searchRes = results.some((o) => o.id === resultId);
-  if (!searchRes) {
-    notFound();
-  }
-
-  return <div>{resultId}</div>;
 }

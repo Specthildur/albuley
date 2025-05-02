@@ -1,7 +1,7 @@
 "use client";
 import { useStore } from "@/app/lib/store";
 import { useShallow } from "zustand/react/shallow";
-import ResultItem from "../results/ResultItem";
+import ResultItem from "./results/ResultItem";
 import { useQuery } from "@tanstack/react-query";
 
 export default function MainContent() {

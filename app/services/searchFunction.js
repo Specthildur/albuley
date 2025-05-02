@@ -1,7 +1,6 @@
 "use server";
 
 export async function searchFunction(searchValue, type) {
-  console.log(searchValue);
   if (type === "params") {
     const response = await fetch(
       `https://api.deezer.com/search/album/${searchValue}`,
@@ -18,7 +17,7 @@ export async function searchFunction(searchValue, type) {
     const data = await response.json();
     const results = await data.data;
     return results;
-  } else if (searchValue === "all") {
+  } else if (searchValue === "all" || !searchValue) {
     const response = await fetch("https://api.deezer.com/chart/0/albums", {
       method: "GET",
     });

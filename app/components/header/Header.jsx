@@ -1,21 +1,24 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { searchFunction } from "@/app/services/searchFunction";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Header({ base }) {
   // const setResults = useStore((state) => state.setResults, true);
   const [searchValue, setSearchValue] = useState("all");
+
   const { refetch } = useQuery({
     queryKey: ["results"],
-    queryFn: () => searchFunction(searchValue, "album"),
+    queryFn: async () => searchFunction(searchValue, "album"),
   });
 
-  function handleSearch(e) {
-    setSearchValue(e.target.value);
-    refetch();
-  }
+  useEffect(() => {
+    const delayInputTimeoutId = setTimeout(() => {
+      refetch();
+    }, 500);
+    return () => clearTimeout(delayInputTimeoutId);
+  }, [searchValue]);
 
   return (
     <header className="mb-4 sm:font-small md:font-medium h-[96px]">
@@ -28,7 +31,7 @@ export default function Header({ base }) {
         <div className={base ? "w-4/7 flex" : "w-4/7 flex"}>
           {base && (
             <input
-              onChange={handleSearch}
+              onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search for your favourite album!"
               className="p-4 border-2 rounded-md focus:outline-0 focus:border-stone-600 hover:border-2 hover:border-stone-600 hover:rounded-md  w-[50%] transition-all"
             />
