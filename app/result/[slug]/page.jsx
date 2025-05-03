@@ -13,11 +13,9 @@ export default async function Page({ params }) {
   const { slug } = await params;
   const album = await getAlbum(slug);
 
-  console.log(album);
-
   return (
     <div className="w-full flex px-15 pt-5">
-      <div className="w-1/4 flex grow flex-col items-start px-5">
+      <div className="w-1/3 flex grow flex-col items-start px-5">
         <Image
           src={album.cover_xl}
           height={400}
@@ -52,7 +50,7 @@ export default async function Page({ params }) {
           <Details data={album.tracks.data}></Details>
         </ul>
       </div>
-      <div className="w-3/4">
+      <div className="w-2/3">
         <p>Test</p>
       </div>
     </div>

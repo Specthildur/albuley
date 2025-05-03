@@ -8,7 +8,7 @@ export default function Header({ base }) {
   // const setResults = useStore((state) => state.setResults, true);
   const [searchValue, setSearchValue] = useState("all");
 
-  const { refetch } = useQuery({
+  const { refetch, isError } = useQuery({
     queryKey: ["results"],
     queryFn: async () => searchFunction(searchValue, "album"),
   });
@@ -17,8 +17,18 @@ export default function Header({ base }) {
     const delayInputTimeoutId = setTimeout(() => {
       refetch();
     }, 500);
-    return () => clearTimeout(delayInputTimeoutId);
+    return () => {
+      clearTimeout(delayInputTimeoutId);
+    };
   }, [searchValue]);
+
+  function setValue(e) {
+    if (!e.target.value) {
+      setSearchValue("all");
+    } else {
+      setSearchValue(e.target.value);
+    }
+  }
 
   return (
     <header className="mb-4 sm:font-small md:font-medium h-[96px]">
@@ -31,7 +41,7 @@ export default function Header({ base }) {
         <div className={base ? "w-4/7 flex" : "w-4/7 flex"}>
           {base && (
             <input
-              onChange={(e) => setSearchValue(e.target.value)}
+              onChange={(e) => setValue(e)}
               placeholder="Search for your favourite album!"
               className="p-4 border-2 rounded-md focus:outline-0 focus:border-stone-600 hover:border-2 hover:border-stone-600 hover:rounded-md  w-[50%] transition-all"
             />
