@@ -13,6 +13,8 @@ export default async function Page({ params }) {
     const { slug } = await params;
     const album = await getAlbum(slug);
 
+    console.log(album);
+
     return (
         <div className="w-full flex px-15 pt-5">
             <div className="w-1/4 flex grow flex-col items-start px-5">
