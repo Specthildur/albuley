@@ -1,5 +1,4 @@
 import "@/app/globals.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import Header from "@/app/components/header/Header";
 import { Fira_Sans } from "next/font/google";
 
