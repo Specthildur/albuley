@@ -49,8 +49,12 @@ export default function Header({ base }) {
         </div>
 
         <div className="w-1/6 flex grow content-stretch">
-          <div className="grow">My Albums</div>
-          <div className="grow">Log Out</div>
+          {base && (
+            <>
+              <div className="grow">My Albums</div>
+              <div className="grow">Log Out</div>
+            </>
+          )}
         </div>
       </div>
     </header>
