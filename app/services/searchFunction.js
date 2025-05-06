@@ -95,25 +95,26 @@
 // }
 
 export async function searchFunction(searchValue, param) {
-  let url;
-  if (param === "album" && searchValue !== "all") {
-    url = `https://api.deezer.com/search/album?q=${searchValue}`;
-  } else if (
-    (searchValue === "all" || searchValue === undefined) &&
-    param === "album"
-  ) {
-    url = "https://api.deezer.com/chart/0/albums";
-  } else if (param === "params") {
-    url = `https://api.deezer.com/search/album/${searchValue}`;
-  }
+    let url;
+    if (param === "album" && searchValue !== "all") {
+        url = `https://api.deezer.com/search/album?q=${searchValue}`;
+    } else if (
+        (searchValue === "all" || searchValue === undefined) &&
+        param === "album"
+    ) {
+        url = "https://api.deezer.com/chart/0/albums";
+    } else if (param === "params") {
+        url = `https://api.deezer.com/search/album/${searchValue}`;
+    }
 
-  const response = await fetch(url);
-  console.log(response);
-  if (response.ok === 500 || !response.ok) {
-    console.log(response);
-    throw new Error("Network error, please try again later " + response.json());
-  }
-  const data = await response.json();
-  const results = await data.data;
-  return results;
+    const response = await fetch(url);
+
+    if (response.ok === 500 || !response.ok) {
+        throw new Error(
+            "Network error, please try again later " + response.json()
+        );
+    }
+    const data = await response.json();
+    const results = await data.data;
+    return results;
 }
