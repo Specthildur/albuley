@@ -2,10 +2,8 @@
 import ImageFallback from "../../helpers/ImageFallback";
 import Image from "next/image";
 import Link from "next/link";
-import supabase from "@/app/config/supbaseClient";
 
 export default function ResultItem({ data }) {
-    console.log(supabase);
     return (
         <li className="flex flex-col p-2 hover:bg-green-300 grow align-middle">
             <Link href={`/result/${data.id}`}>
