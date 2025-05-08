@@ -34,7 +34,7 @@ export default function Header({ base }) {
     <header className="mb-4 sm:font-small md:font-medium h-[96px]">
       <div className="flex border-b-2 border-b-gray-400 pb-4 pt-5 h-full px-5 items-center font-medium">
         <div className="w-2/7">
-          <Link href="/">
+          <Link href="/dashboard">
             <p className="text-lg">Logo</p>
           </Link>
         </div>

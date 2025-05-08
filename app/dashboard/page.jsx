@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import Filter from "@/app/components/MainContent/Filter";
 import Header from "@/app/components/header/Header";
 import MainContent from "@/app/components/MainContent/MainContent";

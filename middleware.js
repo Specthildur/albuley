@@ -1,8 +1,16 @@
 import { NextResponse } from "next/server";
+import { getSessionCookie } from "better-auth/cookies";
 
-const authRoutes = ["/sign-in", "/sign-up"];
+export async function middleware(request) {
+  const sessionCookie = getSessionCookie(request);
 
-export default async function authMiddleware(request) {
-  const pathName = request.nextUrl.pathName;
-  const isAuthRoute = authRoutes.includes(pathName);
+  if (!sessionCookie) {
+    return NextResponse.redirect(new URL("/api/sign-in", request.url));
+  }
+
+  return NextResponse.next();
 }
+
+export const config = {
+  matcher: ["/dashboard"], // Specify the routes the middleware applies to
+};
