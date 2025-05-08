@@ -13,4 +13,7 @@ export const auth = betterAuth({
     enabled: true,
   },
   plugins: [openAPI()],
+  advanced: {
+    useSecureCookies: true,
+  },
 });

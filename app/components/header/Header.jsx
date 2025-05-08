@@ -1,12 +1,18 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { searchFunction } from "@/app/services/searchFunction";
+import { authClient } from "@/app/utils/auth-client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function Header({ base }) {
   // const setResults = useStore((state) => state.setResults, true);
   const [searchValue, setSearchValue] = useState("all");
+
+  async function handleSignOut() {
+    await authClient.signOut();
+  }
 
   const { refetch, isError } = useQuery({
     queryKey: ["results"],
@@ -52,7 +58,11 @@ export default function Header({ base }) {
           {base && (
             <>
               <div className="grow">My Albums</div>
-              <div className="grow">Log Out</div>
+              <div className="grow">
+                <button onClick={handleSignOut} className="cursor-pointer">
+                  Log Out
+                </button>
+              </div>
             </>
           )}
         </div>
