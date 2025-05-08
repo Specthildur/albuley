@@ -115,7 +115,7 @@ export default function Page() {
         </form>
         <div className="flex w-full gap-3 justify-center text-sm/6 text-gray-500 mt-4">
           <p>Already have an account?</p>
-          <Link href={"/api/sign-in"}>
+          <Link href={"/sign-in"}>
             <button
               type="submit"
               className="cursor-pointer hover:text-blue-500"

@@ -55,7 +55,7 @@ export default function Page() {
         <div className="flex w-full gap-3 justify-center text-sm/6 text-gray-500 mt-4">
           <>
             <p>Don't have an account?</p>
-            <Link href={"/api/sign-up"}>
+            <Link href={"/sign-up"}>
               <button className="cursor-pointer hover:text-blue-500">
                 Sign up!
               </button>
