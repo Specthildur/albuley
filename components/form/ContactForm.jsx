@@ -29,7 +29,6 @@ export default function ContactForm() {
                         draggable: true,
                         progress: undefined,
                         theme: "light",
-                        transition: Slide,
                     });
                     router.push("/dashboard");
                 },
