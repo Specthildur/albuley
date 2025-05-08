@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import Header from "@/app/components/header/Header";
+import Header from "@/components/header/Header";
 import { Fira_Sans } from "next/font/google";
 
 const firaSans = Fira_Sans({

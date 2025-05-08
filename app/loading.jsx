@@ -1,4 +1,4 @@
-import Header from "./components/header/Header";
+import Header from "@/components/header/Header";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
