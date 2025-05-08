@@ -11,7 +11,13 @@ export default function Header({ base }) {
   const [searchValue, setSearchValue] = useState("all");
 
   async function handleSignOut() {
-    await authClient.signOut();
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          redirect("/api/sign-in");
+        },
+      },
+    });
   }
 
   const { refetch, isError } = useQuery({
