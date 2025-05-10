@@ -82,7 +82,7 @@ model Verification {
 model user_data {
   id        String    @id
   albums    Json?     @db.Json
-  createdAt DateTime? @default(dbgenerated("(now() AT TIME ZONE 'utc'::text)")) @db.Time(6)
   updatedAt DateTime? @default(dbgenerated("(now() AT TIME ZONE 'utc'::text)")) @db.Timestamp(6)
+  createdAt DateTime? @db.Timestamptz(6)
   users     User      @relation(fields: [id], references: [id], onDelete: NoAction)
 }
