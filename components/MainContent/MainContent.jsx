@@ -12,7 +12,7 @@ export default function MainContent() {
     return (
         <div className="w-2/5 text-center mt-5 h-max grow">
             <p className="block">Search Results</p>
-            <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-8 gap-5">
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 mt-8 gap-5">
                 {data &&
                     data.map((data, i) => <ResultItem key={i} data={data} />)}
             </div>
