@@ -15,6 +15,7 @@ export default function ResultItem({ data }) {
                             height={300}
                             width={300}
                             title={data.title}
+                            className="md:shrink-0"
                         />
                     ) : (
                         <ImageFallback
@@ -22,6 +23,7 @@ export default function ResultItem({ data }) {
                             height={300}
                             width={300}
                             title={data.title}
+                            className="md:shrink-0"
                         ></ImageFallback>
                     )}
                 </div>
