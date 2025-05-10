@@ -2,14 +2,15 @@ import { NextResponse } from "next/server";
 import { getSessionCookie } from "better-auth/cookies";
 
 export async function middleware(request) {
-    const sessionCookie = getSessionCookie(request);
+  const sessionCookie = getSessionCookie(request);
 
-    if (!sessionCookie) {
-        return NextResponse.redirect(new URL("/sign-in", request.url));
-    }
-    return NextResponse.next();
+  if (!sessionCookie) {
+    console.log("incorrect");
+    return NextResponse.redirect(new URL("/sign-in", request.url));
+  }
+  return NextResponse.next();
 }
 
 export const config = {
-    matcher: ["/dashboard"], // Specify the routes the middleware applies to
+  matcher: ["/dashboard"], // Specify the routes the middleware applies to
 };

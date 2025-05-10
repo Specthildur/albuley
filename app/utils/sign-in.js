@@ -11,6 +11,7 @@ export async function signIn(formData) {
         password: password,
       },
     });
+    console.log(response);
     return { error: null };
   } catch (err) {
     return err.body;
