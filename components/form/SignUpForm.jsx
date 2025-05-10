@@ -11,6 +11,7 @@ export default function ContactForm() {
   const router = useRouter();
 
   async function handleSubmit(formData) {
+    setIsPending(true);
     const result = await passwordValidator(
       formData.get("password"),
       formData.get("confirm-password")
@@ -27,6 +28,7 @@ export default function ContactForm() {
         theme: "light",
         position: "bottom-center",
       });
+      setIsPending(false);
       return;
     }
 
@@ -42,7 +44,9 @@ export default function ContactForm() {
         progress: undefined,
         theme: "dark",
       });
+      setIsPending(false);
     } else {
+      setIsPending(false);
       router.push("dashboard");
     }
   }
