@@ -5,8 +5,7 @@ export async function middleware(request) {
     const sessionCookie = getSessionCookie(request);
 
     if (!sessionCookie) {
-        // return NextResponse.redirect(new URL("/sign-in", request.url));
-        return NextResponse.next();
+        return NextResponse.redirect(new URL("/sign-in", request.url));
     }
     return NextResponse.next();
 }

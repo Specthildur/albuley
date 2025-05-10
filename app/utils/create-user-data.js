@@ -5,19 +5,20 @@ import { auth } from "@/app/utils/auth";
 const prisma = new PrismaClient();
 
 export default async function createUserData(id) {
-  if (!id) {
-    return null;
-  }
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-  try {
-    await prisma.user_data.create({
-      data: {
-        id: session.user.id,
-      },
+    if (!id) {
+        return null;
+    }
+    const session = await auth.api.getSession({
+        headers: await headers(),
     });
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+        const response = await prisma.user_data.create({
+            data: {
+                id: session.user.id,
+            },
+        });
+        return true;
+    } catch (error) {
+        return error;
+    }
 }
