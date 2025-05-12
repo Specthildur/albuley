@@ -11,17 +11,16 @@ export default async function HomePage() {
     headers: await headers(),
   });
 
-  if (!session) {
-    redirect("/sign-up");
-  } else {
-    return (
-      <>
-        <Header base={true}></Header>
-        <div className="mx-[5%] h-max flex">
-          <Filter></Filter>
-          <MainContent></MainContent>
-        </div>
-      </>
-    );
-  }
+  // if (!session) {
+  //   redirect("/sign-up");
+  // } else {
+  return (
+    <>
+      <Header base={true}></Header>
+      <div className="h-max md:flex sm:flex sm:flex-col md:flex-row md:mx-10">
+        <Filter></Filter>
+        <MainContent></MainContent>
+      </div>
+    </>
+  );
 }

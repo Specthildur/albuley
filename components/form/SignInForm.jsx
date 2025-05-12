@@ -10,7 +10,6 @@ export default function SignInForm() {
   const router = useRouter();
   async function handleSignIn(e) {
     const response = await signIn(e);
-    console.log(response);
     if (response.message) {
       toast.error(response.message || "Failed to sign in", {
         position: "top-center",

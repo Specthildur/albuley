@@ -15,7 +15,6 @@ export default function ContactForm() {
       formData.get("password"),
       formData.get("confirm-password")
     );
-    console.log(result);
     if (result.error) {
       toast.error(`${result.message}`, {
         position: "top-center",

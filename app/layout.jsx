@@ -12,7 +12,7 @@ const firaSans = Fira_Sans({
 export default function RootLayout({ children }) {
   return (
     <html>
-      <body className={`${firaSans.className} bg-gray-100 h-dvh`}>
+      <body className={`${firaSans.className} bg-gray-200 h-dvh`}>
         <QueryProvider>
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
         </QueryProvider>

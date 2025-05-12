@@ -59,22 +59,22 @@ export default function Header({ base }) {
       <ToastContainer></ToastContainer>
       <header className="mb-4 sm:font-small md:font-medium h-[96px]">
         <div className="flex border-b-2 border-b-gray-400 pb-4 pt-5 h-full px-5 items-center font-medium">
-          <div className="w-2/7">
+          <div className="w-1/6">
             <Link href="/dashboard">
               <p className="text-lg">Logo</p>
             </Link>
           </div>
-          <div className="lg:w-4/7 sm:hidden md:block flex">
+          <div className="w-3/6 md:block grow-0 md:w-4/6">
             {base && (
               <input
                 onChange={(e) => setValue(e)}
                 placeholder="Search for your favourite album!"
-                className="p-4 border-2 rounded-md focus:outline-0 focus:border-stone-600 hover:border-2 hover:border-stone-600 hover:rounded-md  w-[50%] transition-all"
+                className="p-4 border-2 rounded-md focus:outline-0 focus:border-stone-600 hover:border-2 hover:border-stone-600 hover:rounded-md md:w-[60%] sm:w-[40%]transition-all bg-white"
               />
             )}
           </div>
 
-          <div className="w-1/6 flex grow content-stretch">
+          <div className="w-2/6 flex grow content-stretch md:inline-flex md:w-1/6">
             {base && (
               <>
                 <div className="grow">My Albums</div>

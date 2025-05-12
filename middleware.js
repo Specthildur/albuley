@@ -5,10 +5,9 @@ export async function middleware(request) {
   const sessionCookie = getSessionCookie(request);
 
   if (!sessionCookie) {
-    console.log("incorrect");
-    return NextResponse.redirect(new URL("/sign-in", request.url));
+    //return NextResponse.redirect(new URL("/sign-in", request.url));
+    return NextResponse.next();
   }
-  return NextResponse.next();
 }
 
 export const config = {
