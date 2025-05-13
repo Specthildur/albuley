@@ -2,10 +2,6 @@
 import accessToken from "./accessToken";
 
 export async function searchFunction(searchValue, param) {
-  //   const token = await accessToken();
-  //   const body = await token.json();
-  //   localStorage.setItem("access_token", body);
-  //   console.log(body);
   let url;
   if (param === "album" && searchValue !== "all") {
     url = `https://api.deezer.com/search/album?q=${searchValue}`;
