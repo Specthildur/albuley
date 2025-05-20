@@ -33,6 +33,7 @@ export default function ContactForm() {
 
     const response = await signUp(formData);
     if (response.message) {
+      console.log(response);
       toast.error(response.message || "Failed to sign up", {
         position: "bottom-center",
         autoClose: 5000,

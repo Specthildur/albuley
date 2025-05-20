@@ -1,8 +1,5 @@
 "use server";
 import { auth } from "@/app/utils/auth";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
 
 export async function signUp(formData) {
   const name = formData.get("full-name");
@@ -28,6 +25,7 @@ export async function signUp(formData) {
     if (err.body) {
       return err.body;
     } else {
+      console.log(err);
       return err;
     }
   }
