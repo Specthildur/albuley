@@ -69,7 +69,7 @@ export default function Header({ base }) {
               <input
                 onChange={(e) => setValue(e)}
                 placeholder="Search for your favourite album!"
-                className="p-4 border-2 rounded-md focus:outline-0 focus:border-stone-600 hover:border-2 hover:border-stone-600 hover:rounded-md md:w-[60%] sm:w-[40%]transition-all bg-white"
+                className="p-4 border-2 rounded-md focus:outline-0 focus:border-stone-600 hover:border-2 hover:border-stone-600 hover:rounded-md md:w-[60%] sm:w-[40%]transition-all bg-white "
               />
             )}
           </div>

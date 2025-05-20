@@ -65,7 +65,6 @@ export default function Filter() {
           </FormControl>
         </AccordionDetails>
       </Accordion>
-      <h1>{paramStore.param}</h1>
     </div>
   );
 }

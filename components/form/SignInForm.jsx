@@ -48,7 +48,7 @@ export default function SignInForm() {
               required
               name="email"
               placeholder="Email"
-              className="text-center border-1 py-2 px-4 rounded-md focus:outline-offset-1 focus:border-black text-gray-900"
+              className="text-center border-1 py-2 px-4 rounded-md focus:outline-offset-1 focus:border-black text-gray-900 bg-white"
             />
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function SignInForm() {
               name="password"
               type="password"
               placeholder="Password"
-              className="text-center border-1 py-2 px-4 rounded-md focus:outline-offset-1 focus:border-black text-gray-900"
+              className="text-center border-1 py-2 px-4 rounded-md focus:outline-offset-1 focus:border-black text-gray-900 bg-white"
             />
           </div>
         </div>

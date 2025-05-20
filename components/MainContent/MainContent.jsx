@@ -1,6 +1,7 @@
 "use client";
 import ResultItem from "./results/ResultItem";
 import { useQuery } from "@tanstack/react-query";
+import getSession from "@/app/utils/get-session";
 
 export default function MainContent() {
   const { data } = useQuery({
@@ -12,6 +13,7 @@ export default function MainContent() {
   return (
     <div className="text-center mt-5 h-max grow w-full flex flex-col">
       <p className="block">Search Results</p>
+      <button onClick={getSession}>Get Session info</button>
       <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 mt-8 gap-5 m-auto">
         {data && data.map((data, i) => <ResultItem key={i} data={data} />)}
       </div>
