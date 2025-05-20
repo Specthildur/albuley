@@ -15,11 +15,6 @@ export async function signUp(formData) {
       },
     });
 
-    console.log(signedUpUser);
-
-    if (!createdData) {
-      throw new Error("Unable to create user data");
-    }
     return { error: null };
   } catch (err) {
     if (err.body) {
